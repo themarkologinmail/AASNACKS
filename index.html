@@ -292,23 +292,73 @@
 (function() {
 
   // ==========================================
-  // CONFIG — edit this list as you publish briefs
+  // Dynamic file detection via GitHub API
   // ==========================================
+  // Fetches the repo file list at page load. Any MM-DD.html file in the
+  // repo root is automatically picked up — no hardcoded list to maintain.
+  // Just upload the file and refresh.
 
-  // Days that have briefs published. Add new entries as you publish.
-  // Format: 'MM-DD' strings. The HTML file at MM-DD.html must exist.
-  // Calendar is evergreen — same brief shown every year for that calendar date.
-  var PUBLISHED = {
-    '04-30': true,
-    '05-01': true,
-    '05-02': true,
-    '05-03': true,
-    '05-04': true,
-    '05-05': true,
-    '05-06': true,
-    '05-08': true,
-    '05-09': true
-  };
+  var GITHUB_API = 'https://api.github.com/repos/themarkologinmail/aasnacks/contents/';
+  var MMDD_PATTERN = /^(\d{2})-(\d{2})\.html$/;
+
+  // Cache the result in sessionStorage so we don't burn API calls on every
+  // refresh within the same session. GitHub's unauthenticated rate limit is
+  // 60/hour per IP — plenty for normal use, but cache anyway for speed.
+  // Cache TTL: 5 minutes. Set to 0 to always fetch fresh.
+  var CACHE_KEY = 'aasnacks_published_v1';
+  var CACHE_TTL_MS = 5 * 60 * 1000;
+
+  var PUBLISHED = {};
+
+  function loadFromCache() {
+    try {
+      var raw = sessionStorage.getItem(CACHE_KEY);
+      if (!raw) return null;
+      var parsed = JSON.parse(raw);
+      if (!parsed.timestamp || !parsed.data) return null;
+      if (Date.now() - parsed.timestamp > CACHE_TTL_MS) return null;
+      return parsed.data;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function saveToCache(data) {
+    try {
+      sessionStorage.setItem(CACHE_KEY, JSON.stringify({
+        timestamp: Date.now(),
+        data: data
+      }));
+    } catch (e) {
+      // sessionStorage unavailable — silently skip
+    }
+  }
+
+  function fetchPublishedList() {
+    var cached = loadFromCache();
+    if (cached) {
+      return Promise.resolve(cached);
+    }
+
+    return fetch(GITHUB_API)
+      .then(function(res) {
+        if (!res.ok) throw new Error('GitHub API: ' + res.status);
+        return res.json();
+      })
+      .then(function(files) {
+        var published = {};
+        for (var i = 0; i < files.length; i++) {
+          var name = files[i].name;
+          var match = MMDD_PATTERN.exec(name);
+          if (match) {
+            var key = match[1] + '-' + match[2];
+            published[key] = true;
+          }
+        }
+        saveToCache(published);
+        return published;
+      });
+  }
 
   // ==========================================
   // Rendering — perpetual calendar (no year, no weekday)
@@ -368,6 +418,7 @@
   // and prior months follow in reverse-chronological evergreen order
   function renderMonths() {
     var container = document.getElementById('months');
+    container.innerHTML = ''; // clear in case of re-render
     var order = [];
 
     // Start from current month, walk backwards through 12 months
@@ -433,8 +484,26 @@
     return section;
   }
 
-  renderTodayFeature();
-  renderMonths();
+  function render() {
+    renderTodayFeature();
+    renderMonths();
+  }
+
+  // Initial render with empty PUBLISHED, then update once API responds.
+  // This way the page paints instantly and fills in briefs when ready.
+  render();
+
+  fetchPublishedList()
+    .then(function(published) {
+      PUBLISHED = published;
+      render();
+    })
+    .catch(function(err) {
+      // API fetch failed — page already rendered with empty state.
+      // Log quietly; user still sees the calendar grid.
+      console.warn('AA Snacks: could not fetch published list —', err.message);
+    });
+
 })();
 </script>
 
