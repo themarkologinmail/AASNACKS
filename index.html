@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AA Snacks — A Daily Brief for Spiritual Miners</title>
+
+<!-- Open Graph -->
+<meta property="og:title" content="AA Snacks">
+<meta property="og:description" content="A daily brief for Spiritual Miners. New brief every morning. Grounded in twelve-step recovery wisdom.">
+<meta property="og:image" content="https://themarkologinmail.github.io/aasnacks/preview.png">
+<meta property="og:url" content="https://themarkologinmail.github.io/aasnacks/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="AA Snacks">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AA Snacks">
+<meta name="twitter:description" content="A daily brief for Spiritual Miners. New brief every morning.">
+<meta name="twitter:image" content="https://themarkologinmail.github.io/aasnacks/preview.png">
+
+<style>
+  :root {
+    --cream: #faf7f0;
+    --cream-deep: #f0ebe0;
+    --ink: #1f2937;
+    --ink-soft: #4b5563;
+    --muted: #9ca3af;
+    --muted-soft: #d1d5db;
+    --accent: #92400e;
+    --accent-soft: #fef3e7;
+    --hairline: #e7e2d6;
+    --pad-page: clamp(20px, 4vw, 48px);
+    --radius-card: 18px;
+    --radius-cell: 10px;
+    --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    padding: 0;
+    background: var(--cream);
+    font-family: var(--font-sans);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+  }
+
+  .page {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: var(--pad-page) clamp(16px, 4vw, 32px) 80px;
+  }
+
+  /* Masthead */
+  .masthead {
+    text-align: center;
+    margin-bottom: clamp(36px, 5vw, 60px);
+  }
+  .masthead-graphic {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+  }
+  .masthead-graphic img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .masthead-tagline {
+    margin: clamp(20px, 3vw, 28px) auto 0 auto;
+    font-size: clamp(14px, 1.5vw + 10px, 16px);
+    color: var(--ink-soft);
+    line-height: 1.6;
+    max-width: 480px;
+  }
+
+  /* Today's brief feature */
+  .today-feature {
+    background: #fff;
+    border: 4px solid #000;
+    border-radius: var(--radius-card);
+    padding: clamp(22px, 3vw, 32px) clamp(20px, 3vw, 32px);
+    margin-bottom: clamp(40px, 5vw, 60px);
+    text-align: center;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .today-feature.has-brief {
+    box-shadow: 6px 6px 0 #000;
+  }
+  .today-feature.has-brief:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 8px 8px 0 #000;
+  }
+  .today-feature.has-brief a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+  }
+  .today-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 12px;
+  }
+  .today-date {
+    font-size: clamp(24px, 3vw + 12px, 34px);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 10px 0;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .today-cta {
+    font-size: 14px;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+  .today-cta strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Month section */
+  .month-section {
+    margin-bottom: clamp(40px, 5vw, 64px);
+  }
+  .month-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .month-title {
+    font-size: clamp(20px, 2vw + 12px, 24px);
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .month-meta {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* Calendar grid */
+  .cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 7px;
+    margin-bottom: 8px;
+  }
+  .cal-weekday {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 6px 0;
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 7px;
+  }
+  .cal-cell {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--radius-cell);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: var(--font-sans);
+    transition: all 0.15s ease;
+    position: relative;
+    min-height: 0;
+  }
+  .cal-cell.empty { background: transparent; }
+  .cal-cell.coming {
+    background: var(--cream-deep);
+    border: 1px solid var(--hairline);
+    cursor: default;
+  }
+  .cal-cell.coming .cell-day {
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .cal-cell.coming .cell-status {
+    font-size: clamp(7px, 1.1vw, 9px);
+    color: var(--muted);
+    margin-top: 4px;
+    line-height: 1.15;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0 4px;
+  }
+  .cal-cell.has-brief {
+    background: #fff;
+    border: 2px solid var(--ink);
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .cal-cell.has-brief:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 3px 0 var(--ink);
+  }
+  .cal-cell.has-brief .cell-day {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .cal-cell.has-brief .cell-status {
+    font-size: clamp(8px, 1vw, 10px);
+    color: var(--accent);
+    margin-top: 3px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .cal-cell.today {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .cal-cell.today .cell-day,
+  .cal-cell.today .cell-status {
+    color: var(--cream);
+  }
+  .cal-cell.today.has-brief:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .cal-cell.future {
+    background: transparent;
+    border: 1px dashed var(--muted-soft);
+  }
+  .cal-cell.future .cell-day {
+    color: var(--muted-soft);
+    font-weight: 500;
+  }
+  .cell-day {
+    font-size: clamp(15px, 2vw + 8px, 18px);
+    line-height: 1;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: clamp(48px, 6vw, 80px);
+    padding-top: clamp(24px, 3vw, 32px);
+    border-top: 1px solid var(--hairline);
+    text-align: center;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .footer-signoff {
+    color: var(--ink);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .footer-crisis {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.55;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 480px) {
+    .cal-grid, .cal-weekdays { gap: 5px; }
+    .today-feature { border-width: 3px; padding: 20px 16px; box-shadow: 4px 4px 0 #000; }
+    .today-feature.has-brief:hover { box-shadow: 5px 5px 0 #000; transform: translate(-1px, -1px); }
+    .cal-cell.coming .cell-status { font-size: 7px; }
+    .cal-cell.has-brief .cell-status { font-size: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="masthead">
+    <div class="masthead-graphic">
+      <img src="preview.png" alt="AA Snacks — A Daily Brief for Spiritual Miners">
+    </div>
+    <p class="masthead-tagline">A daily recovery brief grounded in twelve-step wisdom. Punchy, warm, high-signal. New brief every morning. A supplement, not a sponsor.</p>
+  </div>
+
+  <div id="today-feature"></div>
+  <div id="months"></div>
+
+  <div class="footer">
+    <p class="footer-signoff">Until tomorrow,<br>Brother Marko</p>
+    <p class="footer-crisis">A supplement, not a sponsor. In crisis: 988 Suicide &amp; Crisis Lifeline. Substance Abuse and Mental Health Services Administration National Helpline: 1-800-662-4357.</p>
+  </div>
+
+</div>
+
+<script>
+(function() {
+
+  // ==========================================
+  // CONFIG — edit these as you publish briefs
+  // ==========================================
+
+  // The first month with a brief published. Calendar starts here.
+  // Format: { year: 2026, month: 4 } where month is 1-indexed (April = 4)
+  var FIRST_MONTH = { year: 2026, month: 4 };
+
+  // Days that have briefs published. Add new entries as you publish.
+  // Format: 'MM-DD' strings. The HTML file at MM-DD.html must exist.
+  var PUBLISHED = {
+    '04-30': true,
+    '05-01': true,
+    '05-02': true,
+    '05-03': true,
+    '05-04': true,
+    '05-05': true,
+    '05-06': true,
+    '05-08': true,
+    '05-09': true
+  };
+
+  // ==========================================
+  // Rendering
+  // ==========================================
+
+  var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var WEEKDAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+  var today = new Date();
+  var todayYear = today.getFullYear();
+  var todayMonth = today.getMonth() + 1;
+  var todayDay = today.getDate();
+  var todayKey = pad(todayMonth) + '-' + pad(todayDay);
+
+  function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+  function ordinal(d) {
+    if (d >= 11 && d <= 13) return 'th';
+    switch (d % 10) {
+      case 1: return 'st';
+      case 2: return 'nd';
+      case 3: return 'rd';
+      default: return 'th';
+    }
+  }
+
+  function isPublished(key) {
+    return Object.prototype.hasOwnProperty.call(PUBLISHED, key);
+  }
+
+  function renderTodayFeature() {
+    var container = document.getElementById('today-feature');
+    var dayName = today.toLocaleDateString('en-US', { weekday: 'long' });
+    var monthName = MONTH_NAMES[today.getMonth()];
+    var dateStr = monthName + ' ' + todayDay + ordinal(todayDay);
+
+    if (isPublished(todayKey)) {
+      container.innerHTML =
+        '<div class="today-feature has-brief">' +
+          '<a href="' + todayKey + '.html">' +
+            '<div class="today-label">Today\u2019s brief</div>' +
+            '<h2 class="today-date">' + dayName + ', ' + dateStr + '</h2>' +
+            '<p class="today-cta">Tap to read \u2014 <strong>fresh out of the oven</strong></p>' +
+          '</a>' +
+        '</div>';
+    } else {
+      container.innerHTML =
+        '<div class="today-feature">' +
+          '<div class="today-label">Today</div>' +
+          '<h2 class="today-date">' + dayName + ', ' + dateStr + '</h2>' +
+          '<p class="today-cta">Stay hungry. Today\u2019s snack is on the way.</p>' +
+        '</div>';
+    }
+  }
+
+  function renderMonths() {
+    var container = document.getElementById('months');
+    var months = [];
+
+    var y = FIRST_MONTH.year;
+    var m = FIRST_MONTH.month;
+    while (y < todayYear || (y === todayYear && m <= todayMonth)) {
+      months.push({ year: y, month: m });
+      m++;
+      if (m > 12) { m = 1; y++; }
+    }
+    months.reverse();
+
+    for (var i = 0; i < months.length; i++) {
+      container.appendChild(buildMonthSection(months[i].year, months[i].month));
+    }
+  }
+
+  function buildMonthSection(year, month) {
+    var section = document.createElement('div');
+    section.className = 'month-section';
+
+    var daysInMonth = new Date(year, month, 0).getDate();
+    var publishedCount = 0;
+    for (var d = 1; d <= daysInMonth; d++) {
+      var key = pad(month) + '-' + pad(d);
+      if (isPublished(key)) publishedCount++;
+    }
+
+    var header = document.createElement('div');
+    header.className = 'month-header';
+    header.innerHTML =
+      '<h3 class="month-title">' + MONTH_NAMES[month - 1] + ' ' + year + '</h3>' +
+      '<span class="month-meta">' + publishedCount + ' brief' + (publishedCount === 1 ? '' : 's') + '</span>';
+    section.appendChild(header);
+
+    var weekdayRow = document.createElement('div');
+    weekdayRow.className = 'cal-weekdays';
+    for (var w = 0; w < WEEKDAY_NAMES.length; w++) {
+      var wd = document.createElement('div');
+      wd.className = 'cal-weekday';
+      wd.textContent = WEEKDAY_NAMES[w];
+      weekdayRow.appendChild(wd);
+    }
+    section.appendChild(weekdayRow);
+
+    var grid = document.createElement('div');
+    grid.className = 'cal-grid';
+
+    var firstDay = new Date(year, month - 1, 1).getDay();
+    for (var i = 0; i < firstDay; i++) {
+      var emptyCell = document.createElement('div');
+      emptyCell.className = 'cal-cell empty';
+      grid.appendChild(emptyCell);
+    }
+
+    for (var d2 = 1; d2 <= daysInMonth; d2++) {
+      var key2 = pad(month) + '-' + pad(d2);
+      var cellDate = new Date(year, month - 1, d2);
+      var isToday = (year === todayYear && month === todayMonth && d2 === todayDay);
+      var isFuture = !isToday && (cellDate.getTime() > today.getTime());
+      var hasBrief = isPublished(key2);
+
+      var cell;
+      if (hasBrief) {
+        cell = document.createElement('a');
+        cell.href = key2 + '.html';
+        cell.className = 'cal-cell has-brief' + (isToday ? ' today' : '');
+        cell.innerHTML =
+          '<div class="cell-day">' + d2 + '</div>' +
+          '<div class="cell-status">read</div>';
+      } else if (isFuture) {
+        cell = document.createElement('div');
+        cell.className = 'cal-cell future';
+        cell.innerHTML = '<div class="cell-day">' + d2 + '</div>';
+      } else {
+        cell = document.createElement('div');
+        cell.className = 'cal-cell coming' + (isToday ? ' today' : '');
+        cell.innerHTML =
+          '<div class="cell-day">' + d2 + '</div>' +
+          '<div class="cell-status">stay hungry</div>';
+      }
+      grid.appendChild(cell);
+    }
+
+    section.appendChild(grid);
+    return section;
+  }
+
+  renderTodayFeature();
+  renderMonths();
+})();
+</script>
+
+</body>
+</html>
