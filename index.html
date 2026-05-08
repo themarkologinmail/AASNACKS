@@ -111,7 +111,7 @@
     margin-bottom: 12px;
   }
   .today-date {
-    font-size: clamp(24px, 3vw + 12px, 34px);
+    font-size: clamp(28px, 3vw + 14px, 38px);
     font-weight: 700;
     color: var(--ink);
     margin: 0 0 10px 0;
@@ -141,7 +141,7 @@
     border-bottom: 1.5px solid var(--ink);
   }
   .month-title {
-    font-size: clamp(20px, 2vw + 12px, 24px);
+    font-size: clamp(22px, 2vw + 14px, 28px);
     font-weight: 700;
     color: var(--ink);
     margin: 0;
@@ -156,21 +156,6 @@
   }
 
   /* Calendar grid */
-  .cal-weekdays {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 7px;
-    margin-bottom: 8px;
-  }
-  .cal-weekday {
-    text-align: center;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 6px 0;
-  }
   .cal-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -189,7 +174,6 @@
     position: relative;
     min-height: 0;
   }
-  .cal-cell.empty { background: transparent; }
   .cal-cell.coming {
     background: var(--cream-deep);
     border: 1px solid var(--hairline);
@@ -244,14 +228,6 @@
     background: var(--accent);
     border-color: var(--accent);
   }
-  .cal-cell.future {
-    background: transparent;
-    border: 1px dashed var(--muted-soft);
-  }
-  .cal-cell.future .cell-day {
-    color: var(--muted-soft);
-    font-weight: 500;
-  }
   .cell-day {
     font-size: clamp(15px, 2vw + 8px, 18px);
     line-height: 1;
@@ -283,7 +259,7 @@
   }
 
   @media (max-width: 480px) {
-    .cal-grid, .cal-weekdays { gap: 5px; }
+    .cal-grid { gap: 5px; }
     .today-feature { border-width: 3px; padding: 20px 16px; box-shadow: 4px 4px 0 #000; }
     .today-feature.has-brief:hover { box-shadow: 5px 5px 0 #000; transform: translate(-1px, -1px); }
     .cal-cell.coming .cell-status { font-size: 7px; }
@@ -316,15 +292,12 @@
 (function() {
 
   // ==========================================
-  // CONFIG — edit these as you publish briefs
+  // CONFIG — edit this list as you publish briefs
   // ==========================================
-
-  // The first month with a brief published. Calendar starts here.
-  // Format: { year: 2026, month: 4 } where month is 1-indexed (April = 4)
-  var FIRST_MONTH = { year: 2026, month: 4 };
 
   // Days that have briefs published. Add new entries as you publish.
   // Format: 'MM-DD' strings. The HTML file at MM-DD.html must exist.
+  // Calendar is evergreen — same brief shown every year for that calendar date.
   var PUBLISHED = {
     '04-30': true,
     '05-01': true,
@@ -338,14 +311,14 @@
   };
 
   // ==========================================
-  // Rendering
+  // Rendering — perpetual calendar (no year, no weekday)
   // ==========================================
 
   var MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-  var WEEKDAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+  // Days in each month (ignoring leap years for evergreen Feb 29 — we always show 29 days in Feb)
+  var DAYS_IN_MONTH = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
   var today = new Date();
-  var todayYear = today.getFullYear();
   var todayMonth = today.getMonth() + 1;
   var todayDay = today.getDate();
   var todayKey = pad(todayMonth) + '-' + pad(todayDay);
@@ -366,9 +339,9 @@
     return Object.prototype.hasOwnProperty.call(PUBLISHED, key);
   }
 
+  // Today feature card
   function renderTodayFeature() {
     var container = document.getElementById('today-feature');
-    var dayName = today.toLocaleDateString('en-US', { weekday: 'long' });
     var monthName = MONTH_NAMES[today.getMonth()];
     var dateStr = monthName + ' ' + todayDay + ordinal(todayDay);
 
@@ -377,7 +350,7 @@
         '<div class="today-feature has-brief">' +
           '<a href="' + todayKey + '.html">' +
             '<div class="today-label">Today\u2019s brief</div>' +
-            '<h2 class="today-date">' + dayName + ', ' + dateStr + '</h2>' +
+            '<h2 class="today-date">' + dateStr + '</h2>' +
             '<p class="today-cta">Tap to read \u2014 <strong>fresh out of the oven</strong></p>' +
           '</a>' +
         '</div>';
@@ -385,73 +358,57 @@
       container.innerHTML =
         '<div class="today-feature">' +
           '<div class="today-label">Today</div>' +
-          '<h2 class="today-date">' + dayName + ', ' + dateStr + '</h2>' +
+          '<h2 class="today-date">' + dateStr + '</h2>' +
           '<p class="today-cta">Stay hungry. Today\u2019s snack is on the way.</p>' +
         '</div>';
     }
   }
 
+  // Render every month, ordering them so current month is first
+  // and prior months follow in reverse-chronological evergreen order
   function renderMonths() {
     var container = document.getElementById('months');
-    var months = [];
+    var order = [];
 
-    var y = FIRST_MONTH.year;
-    var m = FIRST_MONTH.month;
-    while (y < todayYear || (y === todayYear && m <= todayMonth)) {
-      months.push({ year: y, month: m });
-      m++;
-      if (m > 12) { m = 1; y++; }
+    // Start from current month, walk backwards through 12 months
+    for (var i = 0; i < 12; i++) {
+      var m = todayMonth - i;
+      while (m < 1) m += 12;
+      order.push(m);
     }
-    months.reverse();
 
-    for (var i = 0; i < months.length; i++) {
-      container.appendChild(buildMonthSection(months[i].year, months[i].month));
+    for (var j = 0; j < order.length; j++) {
+      var section = buildMonthSection(order[j]);
+      if (section) container.appendChild(section);
     }
   }
 
-  function buildMonthSection(year, month) {
+  function buildMonthSection(month) {
     var section = document.createElement('div');
     section.className = 'month-section';
 
-    var daysInMonth = new Date(year, month, 0).getDate();
+    var daysInMonth = DAYS_IN_MONTH[month - 1];
     var publishedCount = 0;
     for (var d = 1; d <= daysInMonth; d++) {
       var key = pad(month) + '-' + pad(d);
       if (isPublished(key)) publishedCount++;
     }
 
+    // Header — month name only, no year
     var header = document.createElement('div');
     header.className = 'month-header';
     header.innerHTML =
-      '<h3 class="month-title">' + MONTH_NAMES[month - 1] + ' ' + year + '</h3>' +
+      '<h3 class="month-title">' + MONTH_NAMES[month - 1] + '</h3>' +
       '<span class="month-meta">' + publishedCount + ' brief' + (publishedCount === 1 ? '' : 's') + '</span>';
     section.appendChild(header);
 
-    var weekdayRow = document.createElement('div');
-    weekdayRow.className = 'cal-weekdays';
-    for (var w = 0; w < WEEKDAY_NAMES.length; w++) {
-      var wd = document.createElement('div');
-      wd.className = 'cal-weekday';
-      wd.textContent = WEEKDAY_NAMES[w];
-      weekdayRow.appendChild(wd);
-    }
-    section.appendChild(weekdayRow);
-
+    // Grid — no weekday header, no day-of-week alignment, just date numbers in a 7-wide grid
     var grid = document.createElement('div');
     grid.className = 'cal-grid';
 
-    var firstDay = new Date(year, month - 1, 1).getDay();
-    for (var i = 0; i < firstDay; i++) {
-      var emptyCell = document.createElement('div');
-      emptyCell.className = 'cal-cell empty';
-      grid.appendChild(emptyCell);
-    }
-
     for (var d2 = 1; d2 <= daysInMonth; d2++) {
       var key2 = pad(month) + '-' + pad(d2);
-      var cellDate = new Date(year, month - 1, d2);
-      var isToday = (year === todayYear && month === todayMonth && d2 === todayDay);
-      var isFuture = !isToday && (cellDate.getTime() > today.getTime());
+      var isToday = (month === todayMonth && d2 === todayDay);
       var hasBrief = isPublished(key2);
 
       var cell;
@@ -462,10 +419,6 @@
         cell.innerHTML =
           '<div class="cell-day">' + d2 + '</div>' +
           '<div class="cell-status">read</div>';
-      } else if (isFuture) {
-        cell = document.createElement('div');
-        cell.className = 'cal-cell future';
-        cell.innerHTML = '<div class="cell-day">' + d2 + '</div>';
       } else {
         cell = document.createElement('div');
         cell.className = 'cal-cell coming' + (isToday ? ' today' : '');
