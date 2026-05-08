@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AA Snacks: Daily Recovery Brief for May 8th</title>
+<style>
+  :root {
+    --font-body: clamp(16px, 1.5vw + 12px, 17px);
+    --font-tag: clamp(14px, 1vw + 11px, 16px);
+    --font-h1: clamp(26px, 3vw + 18px, 30px);
+    --font-h2: clamp(22px, 2.5vw + 16px, 26px);
+    --font-h3: clamp(19px, 2vw + 14px, 22px);
+    --font-h4: clamp(15px, 1.2vw + 11px, 16px);
+    --font-ps: clamp(13px, 0.5vw + 12px, 14px);
+    --line-body: 1.65;
+    --line-h1: 1.25;
+    --line-h2: 1.25;
+    --line-h3: 1.35;
+    --pad-x: clamp(18px, 4vw, 28px);
+    --pad-x-accent: clamp(16px, 3vw, 22px);
+    --gap-y: clamp(14px, 2vw, 18px);
+    --divider-y: clamp(22px, 3vw, 28px);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { margin: 0; padding: 0; background-color: #ffffff; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #374151; }
+  .wrapper { padding: clamp(0px, 2vw, 24px) clamp(0px, 1.5vw, 12px); }
+  .card { width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff; border: 4px solid #000000; border-radius: 16px; overflow: hidden; }
+  .pad { padding: 0 var(--pad-x); }
+  .h1 { margin: 0; font-size: var(--font-h1); line-height: var(--line-h1); font-weight: 700; color: #1f2937; text-align: center; padding: clamp(20px, 3vw, 28px) var(--pad-x) 6px var(--pad-x); }
+  .tag { margin: 0; font-size: var(--font-tag); line-height: 1.6; color: #374151; text-align: center; padding: 0 var(--pad-x) clamp(14px, 2vw, 20px) var(--pad-x); }
+  .h2 { margin: 0; font-size: var(--font-h2); line-height: var(--line-h2); font-weight: 700; color: #1f2937; }
+  .h3 { margin: 0; font-size: var(--font-h3); line-height: var(--line-h3); font-weight: 700; color: #1f2937; }
+  .h4 { margin: 0; font-size: var(--font-h4); line-height: 1.4; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; }
+  .body-p { margin: 0 0 var(--gap-y) 0; font-size: var(--font-body); line-height: var(--line-body); color: #374151; overflow-wrap: break-word; word-wrap: break-word; }
+  .body-p:last-child { margin-bottom: 0; }
+  .body-list { list-style-type: disc; margin: 14px 0 0 0; padding: 0 0 0 22px; }
+  .body-list li { font-size: var(--font-body); line-height: var(--line-body); color: #374151; margin: 0 0 12px 0; overflow-wrap: break-word; word-wrap: break-word; }
+  .body-list li:last-child { margin-bottom: 0; }
+  .accent-deep { background: #f0fff4; border-radius: 10px; padding: clamp(16px, 2.5vw, 20px) var(--pad-x-accent); }
+  .accent-claude { background: #eef2ff; border-radius: 10px; padding: clamp(16px, 2.5vw, 20px) var(--pad-x-accent); }
+  .accent-quotes { background: #fdf4ff; border-radius: 10px; padding: clamp(16px, 2.5vw, 20px) var(--pad-x-accent); }
+  .quote-block { font-style: italic; padding: 8px 14px; border-left: 3px solid #1f2937; margin: 0 0 14px 0; color: #1f2937; }
+  .quote-attr { display: block; font-style: normal; font-size: 0.92em; color: #6b7280; margin-top: 4px; }
+  .featured-reading { background: #fafaf9; border-radius: 10px; padding: clamp(18px, 3vw, 24px) var(--pad-x-accent); border: 1px solid #e7e5e4; }
+  .featured-reading p { font-size: var(--font-body); line-height: 1.7; color: #1f2937; margin: 0 0 14px 0; }
+  .featured-reading p:last-child { margin-bottom: 0; }
+  .featured-reading .source-label { font-size: var(--font-h4); color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 16px; display: block; }
+  .featured-reading .reading-title { font-size: var(--font-h3); line-height: 1.3; font-weight: 700; color: #1f2937; margin: 0 0 18px 0; }
+  .featured-reading blockquote { font-style: italic; color: #4b5563; margin: 0 0 18px 0; padding: 8px 16px; border-left: 3px solid #92400e; font-size: var(--font-body); line-height: 1.6; }
+  .featured-reading blockquote .source-attr { display: block; font-style: normal; font-size: 0.9em; color: #92400e; margin-top: 8px; font-weight: 600; }
+  .featured-reading .attribution { font-size: 0.95em; color: #6b7280; font-style: italic; margin-top: 18px; padding-top: 14px; border-top: 1px solid #e7e5e4; }
+  .divider { border: none; border-top: 1px solid #000000; margin: var(--divider-y) 0; }
+  .divider-soft { border: none; border-top: 1px solid #000000; margin: 0; }
+  .ps { font-size: var(--font-ps); line-height: 1.55; color: #374151; margin: 0 0 12px 0; }
+  .signoff-bold { margin: 0 0 var(--gap-y) 0; font-size: var(--font-body); line-height: var(--line-body); color: #374151; font-weight: 700; }
+  .sit { font-style: italic; color: #4b5563; }
+  @media only screen and (max-width: 480px) {
+    .wrapper { padding: 0; }
+    .card { border-left: none; border-right: none; border-top: none; border-radius: 0; max-width: 100%; }
+    .accent-deep, .accent-claude, .accent-quotes, .featured-reading { border-radius: 8px; }
+  }
+  @media only screen and (min-width: 481px) and (max-width: 767px) {
+    .wrapper { padding: 12px 8px; }
+    .card { border-width: 3px; border-radius: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="card">
+
+    <h1 class="h1">☕ AA Snacks</h1>
+    <p class="tag">A daily brief for Spiritual Miners</p>
+
+    <div class="pad"><hr class="divider-soft"></div>
+
+    <!-- Hook -->
+    <div class="pad" style="padding-top: 24px;">
+      <h2 class="h2">Morning, friend.</h2>
+    </div>
+
+    <div class="pad" style="padding-top: 20px;">
+      <p class="body-p">Friday, May 8. <strong>Special edition</strong> — and a strange one. We're going to sit with the part of AA's history nobody puts on the meeting wall: <em>the founder of the program spent thirty-seven sober years writing letters about being trapped on the inside.</em></p>
+      <p class="body-p">Today's featured reading is from the most quietly devastating thing Bill Wilson ever wrote — <strong>the 1958 <em>Grapevine</em> letter on emotional sobriety</strong>, twenty-three years sober, asking out loud why the Twelve Steps weren't reaching his depressions.</p>
+      <p class="body-p">And here's the strange part: this isn't a downer brief. The fact that he kept naming it — in print, to the whole fellowship — may be one of the most generous things he ever did for the rest of us.</p>
+      <p class="body-p" style="font-weight: 700;">Let's get into it!!</p>
+    </div>
+
+    <div class="pad"><hr class="divider"></div>
+
+    <!-- TODAY'S FEATURED READING -->
+    <div class="pad">
+      <h3 class="h3">📖 Today's Featured Reading</h3>
+    </div>
+
+    <div class="pad" style="padding-top: 16px;">
+      <div class="featured-reading">
+
+        <span class="source-label">AA Grapevine — January 1958</span>
+
+        <p class="reading-title">The Next Frontier: Emotional Sobriety</p>
+
+        <blockquote>
+          I think that many oldsters who have put our AA "booze cure" to severe but successful tests still find they often lack emotional sobriety. Perhaps they will be the spearhead for the next major development in AA — the development of much more real maturity and balance (which is to say, humility) in our relations with ourselves, with our fellows, and with God.
+          <span class="source-attr">— Bill W., opening of the 1958 letter</span>
+        </blockquote>
+
+        <p>Those adolescent urges that so many of us have for top approval, perfect security, and perfect romance — urges quite appropriate to age seventeen — prove to be an impossible way of life when we are at age forty-seven and fifty-seven. <strong>Since AA began, I've taken immense wallops in all these areas because of my failure to grow up emotionally and spiritually.</strong></p>
+
+        <p>Last autumn, depression, having no really rational cause at all, almost took me to the cleaners. I began to be scared that I was in for another long chronic spell. <em>Considering the grief I've had with depressions, it wasn't a bright prospect.</em></p>
+
+        <p>I kept asking myself, "Why can't the Twelve Steps work to release depression?" By the hour, I stared at the St. Francis Prayer — "it's better to comfort than to be comforted." Here was the formula, all right. <strong>But why didn't it work?</strong></p>
+
+        <p>Suddenly, I realized what the matter was. My basic flaw had always been dependence — almost absolute dependence — on people or circumstances to supply me with prestige, security, and the like. Failing to get these things according to my perfectionist dreams and specifications, I had fought for them. <em>And when defeat came, so did my depression.</em></p>
+
+        <p>If we examine every disturbance we have, great or small, we will find at the root of it some unhealthy dependency and its consequent unhealthy demand. Let us, with God's help, continually surrender these hobbling demands.</p>
+
+        <p>Nowadays my brain no longer races compulsively in either elation, grandiosity, or depression. <strong>I have been given a quiet place in bright sunshine.</strong></p>
+
+        <p class="attribution">— Bill W., "The Next Frontier: Emotional Sobriety," <em>AA Grapevine</em>, January 1958. Originally written as a private letter in 1956 to a friend who shared his struggle with depression.</p>
+
+      </div>
+    </div>
+
+    <div class="pad"><hr class="divider"></div>
+
+    <!-- DEEP DIVE -->
+    <div class="pad">
+      <h3 class="h3">🎯 Deep Dive — What "Emotional Sobriety" Actually Means</h3>
+    </div>
+
+    <div class="pad" style="padding-top: 16px;">
+      <div class="accent-deep">
+        <p class="body-p">There's a sentence in this letter that, once you read it carefully, basically reframes the entire program: <strong>"Considering the grief I've had with depressions, it wasn't a bright prospect."</strong></p>
+        <p class="body-p">Read it again. <em>The grief I've had with depressions.</em> Past tense. Plural. Ongoing. The man who wrote chapter five — the man who told the world that we are "happy, joyous, and free" on page 132 — is, twenty-three years sober, telling a friend in private that depression has been a recurring fact of his sober life. <strong>That single phrase is one of the most honest things any AA founder has ever put on paper.</strong></p>
+        <p class="body-p"><strong>Here is what emotional sobriety actually means, in Bill's own framing.</strong> Physical sobriety — not drinking — was step one. The booze cure, as he calls it, succeeded. But underneath the dry years, something else kept happening. He kept demanding that people, situations, and AA itself supply him with prestige, security, and approval on his own terms. When they didn't, he fought. When the fighting failed, he collapsed. <em>The drinking had stopped. The pattern that fueled the drinking had not.</em> Emotional sobriety is the slow, hard work of unhooking those demands — of becoming a person whose inner weather isn't held hostage by whether the outside world cooperates with you today.</p>
+        <p class="body-p"><strong>This is also why the steps alone don't always reach it.</strong> Bill is unusually direct about this in the letter — he stared at the St. Francis prayer "by the hour" and it didn't release the depression. Not because the prayer was wrong. Not because he wasn't working it hard enough. But because the layer the prayer needed to reach was, in his own word, <em>at depth</em> — under the practiced spiritual surface, in the unconscious where the old dependencies were still running the show. He needed the steps <em>and</em> psychotherapy <em>and</em> Father Ed Dowling <em>and</em> years of the same prayer before something shifted. The line worth carrying: <em>some of the work the program asks of us takes longer than the program's first pass through us can do.</em></p>
+        <p class="body-p"><strong>And the destination he names is small, and earned, and exactly right.</strong> Not bliss. Not transcendence. Not the white light at Towns Hospital. <em>"A quiet place in bright sunshine."</em> That's the prize. The brain stops racing. The compulsions to be elated or grandiose or crushed quiet down. You get to be a regular person, in a regular life, in regular sunshine. <strong>For an alcoholic mind, that's everything.</strong></p>
+        <p class="sit">If you're sober and still struggling on the inside — Bill is telling you, from across seventy years, that you're not failing the program. You're working the layer that takes longer.</p>
+      </div>
+    </div>
+
+    <div class="pad"><hr class="divider"></div>
+
+    <!-- CLAUDE'S CORNER -->
+    <div class="pad">
+      <h3 class="h3">🤖 Claude's Corner — On Founders Who Stay Honest</h3>
+    </div>
+
+    <div class="pad" style="padding-top: 16px;">
+      <div class="accent-claude">
+        <p class="body-p">What strikes me about Bill's late writings — taken together, not just this one letter — is how rare it is for the founder of any movement to keep naming his own incompleteness in public. <strong>Most founders harden into the symbol they became.</strong> They start talking about themselves in the third person. They stop admitting that the thing they built didn't finish its work on them. By their thirtieth year inside their own creation, they've become a statue of the person who started it. Bill, by every available record, refused.</p>
+        <p class="body-p">In 1944 — ten years sober, the Big Book already a global phenomenon — he entered psychotherapy with Harry Tiebout because the depressions kept coming. In a 1940s letter to a friend he wrote that <em>"we have the person of Mr. Anonymous in conflict with Bill Wilson"</em> — naming, in his own hand, the split between the public symbol and the private man. In 1956, twenty-one years sober, he wrote the letter we sat with above. In 1958 he let the <em>Grapevine</em> publish it for the whole fellowship to read. He could have buried it. He didn't. He let other recovering people see, in his own words, that the work continued.</p>
+        <p class="body-p"><strong>Why this matters for everyone else who has ever been long-sober and quietly miserable about it:</strong> the silence around persistent struggle in long sobriety is itself a kind of harm. Members who hit a hard inside year at year five or year fifteen or year thirty and assume <em>"I must be doing this wrong, nobody else seems to be in this much pain"</em> — the founder, in print, said no, this happens, this is part of it, the next layer is real, and the language for it is "emotional sobriety." That gift is in the public record because Bill chose to put it there.</p>
+        <p class="body-p" style="margin-bottom: 0;">There's a wider teaching folded into this. <em>The wisest version of any spiritual path is the one whose teachers keep saying "I haven't gotten there yet either."</em> Tradition Twelve calls it humility. Bill's late letters are humility in its working form — a founder still naming, in his sixties, the parts of himself that were not free. The honest synthesis is: <strong>the program kept working on him, and he kept letting it, and he kept saying so out loud.</strong> That's the model. That's the gift.</p>
+      </div>
+    </div>
+
+    <div class="pad"><hr class="divider"></div>
+
+    <!-- Coffee Cup Wisdom -->
+    <div class="pad">
+      <h3 class="h3">☕ Coffee Cup Wisdom</h3>
+    </div>
+
+    <div class="pad" style="padding-top: 16px;">
+      <div class="accent-quotes">
+
+        <div class="quote-block">
+          We have the person of Mr. Anonymous in conflict with Bill Wilson.
+          <span class="quote-attr">— Bill W., letter to a friend, mid-1940s</span>
+        </div>
+
+        <div class="quote-block">
+          How to convince our dumb, raging, and hidden 'Mr. Hyde' becomes our main task.
+          <span class="quote-attr">— Bill W., 1958 emotional sobriety letter</span>
+        </div>
+
+        <div class="quote-block" style="margin-bottom: 0;">
+          We claim spiritual progress rather than spiritual perfection.
+          <span class="quote-attr">— Big Book, p. 60 — written by the same man, twenty years earlier</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="pad"><hr class="divider"></div>
+
+    <!-- Also Worth Knowing Today -->
+    <div class="pad">
+      <h3 class="h3">📋 Also Worth Knowing Today</h3>
+      <p class="body-p" style="margin-top: 14px;">A few other late-Bill fragments worth carrying, if you want them:</p>
+      <ul class="body-list">
+        <li><strong>Tiebout's 1944 diagnosis of Bill.</strong> Harry Tiebout, the first psychiatrist to take AA seriously, told Bill that both in his drinking and his sobriety he had been trying to live out the infantile demands of <em>"His Majesty the Baby"</em> — the inner monarch who expects the world to arrange itself around him. The shock for Bill was that the diagnosis applied to his sober self too. The drinking had stopped. His Majesty had not.</li>
+        <li><strong>Father Ed Dowling's response when Bill asked if there was ever any rest.</strong> The Jesuit who had walked through a rainstorm to meet Bill in 1940 became, in his later years, his spiritual director. When Bill, depressed, asked whether there was ever to be any satisfaction, Dowling answered: <em>"Never. Never any."</em> Then quoted: <em>"Blessed are they who hunger and thirst."</em> Dowling believed Bill's despondency was not a failure of the steps — it was <strong>a sign of his spiritual depth, the cost of being someone who would keep on reaching.</strong></li>
+        <li><strong>The "inventory of psychic damages" Bill proposed in 1956.</strong> In two private letters that year, Bill suggested the moral inventory of Step 4 should eventually be extended into a deeper layer — an inventory of <em>"actual episodes of inferiority, shame, guilt, anger"</em>, relived in the mind to reduce them. He half-joked that <em>"someday a Neurotics Anonymous will be formed and will actually do all this."</em> He was, more or less, predicting trauma-informed therapy. From inside AA. In 1956.</li>
+        <li><strong>The line that closes the 1958 letter, said one more time, slowly.</strong> <em>"I have been given a quiet place in bright sunshine."</em> The man who wrote the Big Book is telling you, in his sixties, that what he ultimately got from a lifetime of work was not enlightenment, not bliss, not certainty — <em>a quiet place. In bright sunshine.</em> Read that twice. That's the destination.</li>
+      </ul>
+    </div>
+
+    <div class="pad"><hr class="divider"></div>
+
+    <!-- Signoff -->
+    <div class="pad" style="padding-bottom: 28px;">
+      <p class="signoff-bold">☕ Thanks for sitting with today's snack — same time, same chair, tomorrow. One day at a time. 🙏</p>
+      <p class="body-p">Until tomorrow,<br>Brother Marko</p>
+      <p class="ps">P.S. If you've ever sat in a meeting at year ten or year twenty and quietly wondered <em>"why am I still struggling on the inside?"</em> — the answer is in this letter. The founder was too. He kept saying so. He kept doing the work. He found his quiet place. So can the rest of us.</p>
+      <p class="ps" style="margin-bottom: 0;">P.P.S. This brief is a supplement, not a sponsor. If today is a hard day — call yours, get to a meeting, or reach the Substance Abuse and Mental Health Services Administration National Helpline at 1-800-662-4357. If you're in crisis, call or text the 988 Suicide &amp; Crisis Lifeline.</p>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
