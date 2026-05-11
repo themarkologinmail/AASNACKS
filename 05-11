@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AA Snacks: Daily Recovery Brief for May 11th</title>
+
+<!-- Open Graph (iMessage, WhatsApp, LinkedIn, Slack, Facebook) -->
+
+<meta property="og:title" content="AA Snacks — May 11th">
+<meta property="og:description" content="A daily brief for Spiritual Miners. Today: the Cleveland AA anniversary, and the playbook the OG group ran that most modern meetings have quietly abandoned.">
+<meta property="og:image" content="https://themarkologinmail.github.io/aasnacks/preview.png">
+<meta property="og:url" content="https://themarkologinmail.github.io/aasnacks/05-11.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AA Snacks">
+
+<!-- Twitter / X -->
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AA Snacks — May 11th">
+<meta name="twitter:description" content="A daily brief for Spiritual Miners. Today: the Cleveland AA anniversary, and the playbook the OG group ran that most modern meetings have quietly abandoned.">
+<meta name="twitter:image" content="https://themarkologinmail.github.io/aasnacks/preview.png">
+
+<style>
+  :root {
+    --font-body: clamp(16px, 1.5vw + 12px, 17px);
+    --font-tag: clamp(15px, 1.2vw + 12px, 17px);
+    --font-h1: clamp(32px, 4vw + 20px, 40px);
+    --font-h2: clamp(22px, 2.5vw + 16px, 26px);
+    --font-h3: clamp(19px, 2vw + 14px, 22px);
+    --font-h4: clamp(15px, 1.2vw + 11px, 16px);
+    --font-ps: clamp(13px, 0.5vw + 12px, 14px);
+    --line-body: 1.65;
+    --line-h1: 1.25;
+    --line-h2: 1.25;
+    --line-h3: 1.35;
+    --pad-x: clamp(18px, 4vw, 28px);
+    --pad-x-accent: clamp(16px, 3vw, 22px);
+    --gap-y: clamp(14px, 2vw, 18px);
+    --divider-y: clamp(22px, 3vw, 28px);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  body { margin: 0; padding: 0; background-color: #ffffff; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #374151; }
+  .wrapper { padding: clamp(0px, 2vw, 24px) clamp(0px, 1.5vw, 12px); }
+  .card { width: 100%; max-width: 600px; margin: 0 auto; background-color: #ffffff; border: 4px solid #000000; border-radius: 16px; overflow: hidden; position: relative; }
+  .pad { padding: 0 var(--pad-x); }
+  .h1 { margin: 0; font-size: var(--font-h1); line-height: var(--line-h1); font-weight: 700; color: #1f2937; text-align: center; padding: clamp(48px, 6vw, 60px) var(--pad-x) 6px var(--pad-x); }
+  .tag { margin: 0; font-size: var(--font-tag); line-height: 1.6; color: #374151; text-align: center; padding: 0 var(--pad-x) clamp(14px, 2vw, 20px) var(--pad-x); }
+  .h2 { margin: 0; font-size: var(--font-h2); line-height: var(--line-h2); font-weight: 700; color: #1f2937; }
+  .h3 { margin: 0; font-size: var(--font-h3); line-height: var(--line-h3); font-weight: 700; color: #1f2937; }
+  .h4 { margin: 0; font-size: var(--font-h4); line-height: 1.4; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; }
+  .body-p { margin: 0 0 var(--gap-y) 0; font-size: var(--font-body); line-height: var(--line-body); color: #374151; overflow-wrap: break-word; word-wrap: break-word; }
+  .body-p:last-child { margin-bottom: 0; }
+  .accent-deep { background: #f0fff4; border-radius: 10px; padding: clamp(16px, 2.5vw, 20px) var(--pad-x-accent); }
+  .accent-claude { background: #eef2ff; border-radius: 10px; padding: clamp(16px, 2.5vw, 20px) var(--pad-x-accent); }
+  .accent-quotes { background: #fdf4ff; border-radius: 10px; padding: clamp(16px, 2.5vw, 20px) var(--pad-x-accent); }
+  .accent-also { background: #fff7ed; border-radius: 10px; padding: clamp(16px, 2.5vw, 20px) var(--pad-x-accent); }
+  .quote-block { font-style: italic; padding: 8px 14px; border-left: 3px solid #1f2937; margin: 0 0 14px 0; color: #1f2937; }
+  .quote-attr { display: block; font-style: normal; font-size: 0.92em; color: #6b7280; margin-top: 4px; }
+  .featured-reading { background: #fafaf9; border-radius: 10px; padding: clamp(18px, 3vw, 24px) var(--pad-x-accent); border: 1px solid #e7e5e4; }
+  .featured-reading p { font-size: var(--font-body); line-height: 1.7; color: #1f2937; margin: 0 0 14px 0; }
+  .featured-reading p:last-child { margin-bottom: 0; }
+  .featured-reading .source-label { font-size: var(--font-h4); color: #6b7280; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; margin-bottom: 16px; display: block; }
+  .featured-reading .reading-title { font-size: var(--font-h3); line-height: 1.3; font-weight: 700; color: #1f2937; margin: 0 0 18px 0; }
+  .featured-reading blockquote { font-style: italic; color: #4b5563; margin: 0 0 18px 0; padding: 8px 16px; border-left: 3px solid #92400e; font-size: var(--font-body); line-height: 1.6; }
+  .featured-reading blockquote .source-attr { display: block; font-style: normal; font-size: 0.9em; color: #92400e; margin-top: 8px; font-weight: 600; }
+  .featured-reading .attribution { font-size: 0.95em; color: #6b7280; font-style: italic; margin-top: 18px; padding-top: 14px; border-top: 1px solid #e7e5e4; }
+  .divider { border: none; border-top: 1px solid #000000; margin: var(--divider-y) 0; }
+  .divider-soft { border: none; border-top: 1px solid #000000; margin: 0; }
+  .ps { font-size: var(--font-ps); line-height: 1.55; color: #374151; margin: 0 0 12px 0; }
+  .signoff-bold { margin: 0 0 var(--gap-y) 0; font-size: var(--font-body); line-height: var(--line-body); color: #374151; font-weight: 700; }
+  .sit { font-style: italic; color: #4b5563; }
+  .corner-back { position: absolute; top: 12px; left: 14px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; padding: 6px 8px; border-radius: 8px; color: #9ca3af; text-decoration: none; line-height: 1; transition: all 0.15s ease; z-index: 2; }
+  .corner-back:hover { color: #92400e; background: #fef3e7; }
+  .corner-back svg { width: 18px; height: 18px; display: block; }
+  .corner-back-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; }
+  .stat-row { display: flex; flex-wrap: wrap; gap: 14px; margin: 16px 0 6px 0; }
+  .stat-cell { flex: 1 1 140px; padding: 12px 14px; background: #ffffff; border: 1px solid #d6d3d1; border-radius: 8px; }
+  .stat-num { font-size: 22px; font-weight: 700; color: #92400e; line-height: 1.1; margin: 0 0 6px 0; letter-spacing: 0.04em; }
+  .stat-label { font-size: 14px; color: #44403c; line-height: 1.45; margin: 0; }
+  .anniversary-strip { background: #fef3e7; border: 1px solid #fde68a; border-radius: 10px; padding: clamp(14px, 2.5vw, 18px) var(--pad-x-accent); }
+  .anniversary-strip p { margin: 0; font-size: var(--font-body); line-height: 1.55; color: #78350f; }
+  .anniversary-strip strong { color: #78350f; }
+  @media only screen and (max-width: 480px) {
+    .wrapper { padding: 0; }
+    .card { border-left: none; border-right: none; border-top: none; border-radius: 0; max-width: 100%; }
+    .accent-deep, .accent-claude, .accent-quotes, .accent-also, .featured-reading, .anniversary-strip { border-radius: 8px; }
+  }
+  @media only screen and (min-width: 481px) and (max-width: 767px) {
+    .wrapper { padding: 12px 8px; }
+    .card { border-width: 3px; border-radius: 12px; }
+  }
+</style>
+
+</head>
+<body>
+
+<div class="wrapper">
+  <div class="card">
+
+```
+<a class="corner-back" href="index.html" aria-label="Back to all briefs" title="All briefs">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="2" y="3" width="12" height="10" rx="1.5"/>
+    <line x1="2" y1="6" x2="14" y2="6"/>
+  </svg>
+  <span class="corner-back-label">ALL</span>
+</a>
+
+<h1 class="h1">☕ AA Snacks</h1>
+<p class="tag">A daily brief for Spiritual Miners</p>
+
+<div class="pad"><hr class="divider-soft"></div>
+
+<!-- Hook -->
+<div class="pad" style="padding-top: 24px;">
+  <h2 class="h2">Morning, friend.</h2>
+</div>
+
+<div class="pad" style="padding-top: 20px;">
+  <p class="body-p">May 11 is one of the most quietly significant dates on the AA calendar — and almost nobody mentions it. <strong>On this day in 1939</strong>, the first AA meeting in Cleveland was held in Abby G.'s living room, and within a year that single group spawned a system that may have produced the highest sustained recovery rate in AA history.</p>
+  <p class="body-p">Today's deep dive: <em>what those Cleveland pioneers actually did differently</em> — and why almost no modern meeting still does it.</p>
+  <p class="body-p">The featured reading happens to be about Step 5 — the same step Cleveland built its entire model around. Coincidence? Sure. But a useful one.</p>
+  <p class="body-p"><strong>Let's get into it!!</strong></p>
+</div>
+
+<div class="pad"><hr class="divider"></div>
+
+<!-- ANNIVERSARY STRIP -->
+<div class="pad">
+  <div class="anniversary-strip">
+    <p>📅 <strong>87 years ago today</strong> — May 11, 1939 — Abby G. and his wife Grace hosted the first Cleveland AA meeting. The Big Book had been published exactly one month earlier. Within a year, more than half of all AA members worldwide were Cleveland-based.</p>
+  </div>
+</div>
+
+<div class="pad"><hr class="divider"></div>
+
+<!-- FEATURED READING -->
+<div class="pad">
+  <h3 class="h3">📖 Today's Featured Reading</h3>
+</div>
+
+<div class="pad" style="padding-top: 16px;">
+  <div class="featured-reading">
+
+    <span class="source-label">Daily Reflections — May 11</span>
+    <h4 class="reading-title">A NEW SENSE OF BELONGING</h4>
+
+    <blockquote>
+      Until we had talked with complete candor of our conflicts, and had listened to someone else do the same thing, we still didn't belong.
+      <span class="source-attr">— Twelve Steps and Twelve Traditions, p. 57</span>
+    </blockquote>
+
+    <p>After four years in A.A. I was able to discover the freedom from the burden of buried emotions that had caused me so much pain. With the help of A.A., and extra counseling, the pain was released and I felt a complete sense of belonging and peace. I also felt a joy and a love of God that I had never experienced before. I am in awe of the power of Step Five.</p>
+
+    <p class="attribution">— Daily Reflections, an AA Conference-approved book of meditations on the Steps, Traditions, and Big Book, written by AA members</p>
+
+  </div>
+</div>
+
+<div class="pad"><hr class="divider"></div>
+
+<!-- DEEP DIVE -->
+<div class="pad">
+  <h3 class="h3">🎯 Deep Dive — What the OG Cleveland Group Did (That We Don't)</h3>
+</div>
+
+<div class="pad" style="padding-top: 16px;">
+  <div class="accent-deep">
+
+    <p class="body-p">Here's a number that should rattle every modern AA member: <strong>Cleveland's documented success rate in the early 1940s reportedly ran between 75% and 93%</strong> — meaning three out of four newcomers, sometimes more, achieved long-term sobriety. By comparison, modern AA-wide first-year retention is generally estimated somewhere between 26% and 50%, depending on which study you trust.</p>
+
+    <p class="body-p">What did Cleveland do that we mostly don't? Six things, all documented in <em>AA Comes of Age</em>, <em>Dr. Bob and the Good Oldtimers</em>, and the original 1944 Cleveland sponsorship pamphlet:</p>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <p class="stat-num">№ 1</p>
+        <p class="stat-label">Sponsors were <strong>assigned, not chosen.</strong> Newcomers didn't shop for a sponsor at coffee. They got one the day they walked in.</p>
+      </div>
+      <div class="stat-cell">
+        <p class="stat-num">№ 2</p>
+        <p class="stat-label">The sponsor <strong>came to you.</strong> Picked you up at home or the hospital, drove you to your first meeting, sat with you through it.</p>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <p class="stat-num">№ 3</p>
+        <p class="stat-label">You worked the <strong>Big Book page by page</strong> with your sponsor — together — not as suggested reading on your own time.</p>
+      </div>
+      <div class="stat-cell">
+        <p class="stat-num">№ 4</p>
+        <p class="stat-label">Cleveland ran <strong>"Beginners' Classes"</strong> — formal walk-throughs of the Steps over four sessions. Nobody white-knuckled it alone.</p>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-cell">
+        <p class="stat-num">№ 5</p>
+        <p class="stat-label">You finished your <strong>Steps in weeks, not years.</strong> The point was to get through them — not stretch them out.</p>
+      </div>
+      <div class="stat-cell">
+        <p class="stat-num">№ 6</p>
+        <p class="stat-label">Within months, you were expected to <strong>sponsor someone else</strong> — even before your own work was "complete."</p>
+      </div>
+    </div>
+
+    <p class="body-p" style="margin-top: 18px;">Modern AA, by and large, runs the inverse. <em>Find your own sponsor whenever you feel ready. Maybe meet for coffee, maybe don't. Read the Big Book on your own. Take your Steps at your own pace — there's no rush. Sponsor someone someday, when you feel qualified.</em> Every one of those phrases would have baffled a 1940 Clevelander.</p>
+
+    <p class="body-p">This isn't a "back to basics" rant. There were real reasons for the loosening — the Traditions, especially Tradition 4 (group autonomy), and the egalitarian spirit of the Twelve and Twelve, intentionally moved the program away from anything that felt prescriptive or authoritarian. Bill W. himself helped soften it. <strong>The looser version is more humane.</strong> It's also, by the numbers we have, far less effective.</p>
+
+    <p class="body-p" style="margin-bottom: 0;">The interesting question for any of us isn't <em>should AA go back to Cleveland-style?</em> It's: <strong>which of those six practices could I quietly bring back into my own program — with my own sponsor, with the people I sponsor — without waiting for the whole fellowship to vote on it?</strong></p>
+
+    <p class="sit" style="margin-top: 14px;">Pick one of the six. Just one. Which would change the most for you?</p>
+  </div>
+</div>
+
+<div class="pad"><hr class="divider"></div>
+
+<!-- CLAUDE'S CORNER -->
+<div class="pad">
+  <h3 class="h3">🤖 Claude's Corner</h3>
+</div>
+
+<div class="pad" style="padding-top: 16px;">
+  <div class="accent-claude">
+    <p class="body-p">There's a quiet pattern hiding in those six Cleveland practices — they all share one feature. <strong>Every single one of them removes a decision from the newcomer.</strong> You don't choose your sponsor. You don't decide when to start your Steps. You don't pick the pace. You don't wait until you feel "ready" to help someone else. The whole system is engineered around the recognition that an alcoholic's decision-making engine is the thing that got them here.</p>
+    <p class="body-p" style="margin-bottom: 0;">Modern AA, by handing those decisions back to the newcomer in the name of autonomy and gentleness, may have inadvertently re-armed the very faculty the program is trying to disarm. The Cleveland model trusted the structure to do the work that the newcomer's own judgment couldn't yet do. <em>The structure was the kindness.</em> Worth sitting with.</p>
+  </div>
+</div>
+
+<div class="pad"><hr class="divider"></div>
+
+<!-- Coffee Cup Wisdom -->
+<div class="pad">
+  <h3 class="h3">☕ Coffee Cup Wisdom</h3>
+</div>
+
+<div class="pad" style="padding-top: 16px;">
+  <div class="accent-quotes">
+
+    <div class="quote-block">
+      In Cleveland or Akron, you couldn't just walk into A.A. the way you can today — you had to be sponsored.
+      <span class="quote-attr">— Clarence S., in Dr. Bob and the Good Oldtimers</span>
+    </div>
+
+    <div class="quote-block">
+      Each prospect was assigned an older A.A., who visited him at his home or in the hospital, instructed him on A.A. principles, and conducted him to his first meeting.
+      <span class="quote-attr">— A.A. Comes of Age, p. 20</span>
+    </div>
+
+    <div class="quote-block" style="margin-bottom: 0;">
+      The Cleveland pioneers had proved three essential things: the value of personal sponsorship; the worth of the A.A. book in indoctrinating newcomers; and the tremendous fact that A.A., when the word really got around, could now soundly grow to great size.
+      <span class="quote-attr">— Bill W., A.A. Comes of Age</span>
+    </div>
+
+  </div>
+</div>
+
+<div class="pad"><hr class="divider"></div>
+
+<!-- ALSO WORTH KNOWING -->
+<div class="pad">
+  <h3 class="h3">📌 Also Worth Knowing Today</h3>
+</div>
+
+<div class="pad" style="padding-top: 16px;">
+  <div class="accent-also">
+    <p class="body-p"><strong>Just for Today (NA):</strong> Today's reflection circles the practice of <em>Step 11 prayer as conscious contact, not transaction</em> — prayer isn't asking for the right outcome, it's making the daily appointment to listen.</p>
+    <p class="body-p"><strong>Twenty-Four Hours a Day:</strong> Today's meditation lands on the idea that <em>service is the antidote to self-pity</em>. When the mind goes quiet on you and gratitude won't come, action with another alcoholic almost always does the work that thinking can't.</p>
+    <p class="body-p" style="margin-bottom: 0;"><strong>One Day at a Time in Al-Anon:</strong> Today's reflection takes up the Cleveland-adjacent theme of <em>not waiting to feel ready</em> before helping someone else — useful counsel for anyone whose recovery has gotten quietly self-focused.</p>
+  </div>
+</div>
+
+<div class="pad"><hr class="divider"></div>
+
+<!-- Signoff -->
+<div class="pad" style="padding-bottom: 28px;">
+  <p class="signoff-bold">☕ Thanks for sitting with today's snack — same time, same chair, tomorrow. One day at a time. 🙏</p>
+  <p class="body-p">Until tomorrow,<br>Brother Marko</p>
+  <p class="ps">P.S. The Cleveland model wasn't perfect — Clarence S. eventually got himself ousted from his own group for inviting a reporter into a meeting, and the directiveness of the early sponsorship style created real conflicts. But the success rate is documented. Whatever they were doing, something was working that we lost.</p>
+  <p class="ps" style="margin-bottom: 0;">P.P.S. This brief is a supplement, not a sponsor. If today is a hard day — call yours, get to a meeting, or reach the Substance Abuse and Mental Health Services Administration National Helpline at 1-800-662-4357. If you're in crisis, call or text the 988 Suicide &amp; Crisis Lifeline.</p>
+</div>
+```
+
+  </div>
+</div>
+
+</body>
+</html>
